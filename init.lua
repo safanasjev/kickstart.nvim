@@ -175,6 +175,9 @@ vim.o.confirm = true
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Switch to last buffer with TAB
+vim.keymap.set('n', '<Tab>', '<C-^>', { desc = 'Switch to last buffer' })
+
 -- Repeat last command
 vim.keymap.set('n', '<leader>;', '@:', { desc = 'Repeat last command' })
 
@@ -220,7 +223,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
-- [[ Basic Autocommands ]]
+-- [[ Basic Autocommands ]]
 --  See `:help
 
 -- Highlight when yanking (copying) text
@@ -700,8 +703,11 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        -- Python
         ruff = {},
+        ty = {},
 
+        -- C/C++
         clangd = {},
 
         lua_ls = {
@@ -789,7 +795,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         c = { 'clang-format' },
-        python = { 'ruff_organize_imports' },
+        python = { 'ruff_format', 'ruff_organize_imports', 'ruff_fix' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
