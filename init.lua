@@ -220,15 +220,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- [[ User Commands ]]
--- Command for code action
-vim.api.nvim_create_user_command('Ca', function()
-  vim.lsp.buf.code_action()
-end, {
-  desc = 'LSP code actions',
-})
-
--- [[ Basic Autocommands ]]
+- [[ Basic Autocommands ]]
 --  See `:help
 
 -- Highlight when yanking (copying) text
